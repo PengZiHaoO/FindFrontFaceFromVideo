@@ -1,0 +1,6 @@
+/root/projects/image_processing/face_detect_reco/build/CMakeFiles/rebuild_cache.dir
+/root/projects/image_processing/face_detect_reco/build/CMakeFiles/edit_cache.dir
+/root/projects/image_processing/face_detect_reco/build/CMakeFiles/detec_reco.dir
+/root/projects/image_processing/face_detect_reco/build/FaceDetector/CMakeFiles/rebuild_cache.dir
+/root/projects/image_processing/face_detect_reco/build/FaceDetector/CMakeFiles/edit_cache.dir
+/root/projects/image_processing/face_detect_reco/build/FaceDetector/CMakeFiles/FaceDetector.dir
