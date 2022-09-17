@@ -22,10 +22,10 @@ public:
 
 private:
     cv::CascadeClassifier _cascade;
-    double _scaleFactor;
-    int _minNeighbors;
-    double _minSizeRatio;
-    double _maxSizeRatio;
+    double                _scaleFactor;
+    int                   _minNeighbors;
+    double                _minSizeRatio;
+    double                _maxSizeRatio;
 
 };
 

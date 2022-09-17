@@ -13,7 +13,7 @@ public:
     void write(cv::Mat &frame);
 
 private:
-    cv::VideoWriter _video;
-    cv::Size _frame_size;
+    cv::VideoWriter     _video;
+    cv::Size            _frame_size;
 };
 

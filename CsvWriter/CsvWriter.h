@@ -12,8 +12,8 @@ public:
     void addEntry(const std::string &entry);
 
 private:
-    std::ofstream _ofs;
-    bool _isFirstEntry;
+    std::ofstream   _ofs;
+    bool            _isFirstEntry;
 
 };
 

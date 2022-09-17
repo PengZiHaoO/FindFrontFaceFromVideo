@@ -20,8 +20,8 @@ public:
     bool recognize(const cv::Mat &face, double &confidence) const;
 
 private:
-    cv::Ptr<cv::face::FaceRecognizer> _model;
-    cv::Size _faceSize;
+    cv::Ptr<cv::face::FaceRecognizer>  _model;
+    cv::Size                           _faceSize;
     
 };
 
