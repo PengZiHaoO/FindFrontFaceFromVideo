@@ -6,6 +6,8 @@
 #include <opencv2/objdetect/objdetect.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
+const int PERSON_LABEL = 10;
+
 class FaceDetector{
 public:
     FaceDetector(const std::string &cascadePath, 
@@ -24,5 +26,6 @@ private:
     int _minNeighbors;
     double _minSizeRatio;
     double _maxSizeRatio;
+
 };
 
