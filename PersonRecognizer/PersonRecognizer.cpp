@@ -1,5 +1,8 @@
 #include "PersonRecognizer.h"
 
+
+const int PERSON_LABEL = 10;
+
 PersonRecognizer::PersonRecognizer(const std::vector<cv::Mat> &imgs, 
                                    int radius, 
                                    int neighbors,

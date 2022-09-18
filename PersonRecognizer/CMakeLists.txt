@@ -1,7 +1,7 @@
 project(PersonRecognizer)
 
 include_directories(${OpenCV_INCLUDE_DIRS})
-include_directories(../FaceDetector)
+include_directories(../PersonRecognizer)
 
 add_library(${PROJECT_NAME}
     SHARED
@@ -9,4 +9,3 @@ add_library(${PROJECT_NAME}
     PersonRecognizer.cpp
 )
 
-#target_include_directories(${PROJECT_NAME} PUBLIC FaceDetector)

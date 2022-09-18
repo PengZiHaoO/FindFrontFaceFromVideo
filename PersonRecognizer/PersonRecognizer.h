@@ -5,8 +5,6 @@
 #include <opencv2/face.hpp>
 #include <vector>
 
-#include "FaceDetector.h"
-
 class PersonRecognizer
 {
 public:

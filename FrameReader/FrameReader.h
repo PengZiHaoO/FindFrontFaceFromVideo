@@ -12,9 +12,9 @@ public:
     cv::Size getSize();
 
 private:
-    cv::VideoCapture _video;
-    int _endFrame;
-    int _delta;
+    cv::VideoCapture    _video;
+    int                 _endFrame;
+    int                 _delta;
     
 };
 

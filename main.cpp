@@ -1,5 +1,6 @@
 #include <cstdlib>
 
+#include <opencv2/opencv.hpp>
 #include "FaceDetector/FaceDetector.h"
 #include "PersonRecognizer/PersonRecognizer.h"
 #include "FrameReader/FrameReader.h"
@@ -25,8 +26,8 @@
 #define CSV_FILE "1.csv"
 
 /** Output video: **/
-#define OUT_FPS    15
-#define OUT_FOURCC cv::CAP_OPENCV_MJPEG //codec
+#define OUT_FPS           15
+#define OUT_FOURCC        cv::CAP_OPENCV_MJPEG //codec
 
 /** Colors, fonts, lines... **/
 #define NO_MATCH_COLOR    cv::Scalar(0,0,255) //red
@@ -50,11 +51,11 @@
 #define DET_MAX_SIZE_RATIO 0.18
 
 /** LBPH face recognizer: **/
-#define LBPH_RADIUS    3
-#define LBPH_NEIGHBORS 8
-#define LBPH_GRID_X    8
-#define LBPH_GRID_Y    8
-#define LBPH_THRESHOLD 180.0
+#define LBPH_RADIUS        3
+#define LBPH_NEIGHBORS     8
+#define LBPH_GRID_X        8
+#define LBPH_GRID_Y        8
+#define LBPH_THRESHOLD     180.0
 
 
 void read_training_set(const std::string &list_path, std::vector<cv::Mat> &images) {
@@ -118,24 +119,24 @@ int main(int argc, char** argv )
 
         csv_writer.nextLine();
 
-        putText(mat, "Face recognition demo (frontal)", POS_TITLE,
+        cv::putText(mat, "Face recognition demo (frontal)", POS_TITLE,
                 FONT, SCALE_TITLE, FONT_COLOR, THICKNESS_TITLE, LINE_TYPE);
-        putText(mat, cv::format("Frame: %d", frame_count), cv::Point(10, mat.rows - 105),
+        cv::putText(mat, cv::format("Frame: %d", frame_count), cv::Point(10, mat.rows - 105),
                 FONT, 2, FONT_COLOR, 1, LINE_TYPE);
-        putText(mat, cv::format("FPS: %d", 15), cv::Point(10, mat.rows - 80),
+        cv::putText(mat, cv::format("FPS: %d", 15), cv::Point(10, mat.rows - 80),
                 FONT, 2, FONT_COLOR, 1, LINE_TYPE);
-        putText(mat, cv::format("Faces: %ld", faces.size()), cv::Point(10, mat.rows - 55),
+        cv::putText(mat, cv::format("Faces: %ld", faces.size()), cv::Point(10, mat.rows - 55),
                 FONT, 2, FONT_COLOR, 1, LINE_TYPE);
-        putText(mat, cv::format("Match: %s", has_match ? "True" : "False"), cv::Point(10, mat.rows - 30),
+        cv::putText(mat, cv::format("Match: %s", has_match ? "True" : "False"), cv::Point(10, mat.rows - 30),
                 FONT, 2, FONT_COLOR, 1, LINE_TYPE);
-        putText(mat, cv::format("Confidence: %f", has_match ? match_confidence : 0), cv::Point(10, mat.rows - 5),
+        cv::putText(mat, cv::format("Confidence: %f", has_match ? match_confidence : 0), cv::Point(10, mat.rows - 5),
                 FONT, 2, FONT_COLOR, 1, LINE_TYPE);
 
         cv::imshow("OutPut", mat);
 
         if('x' == cv::waitKey(0))
         {
-            printf("Bye!");
+            std::printf("Bye!");
 
             return 0;
         }
