@@ -9,6 +9,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PersonRecognizer)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/FaceDetector)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/CsvWriter)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cascades)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/obama_faces)
 
 add_subdirectory(FaceDetector)
 add_subdirectory(PersonRecognizer)
