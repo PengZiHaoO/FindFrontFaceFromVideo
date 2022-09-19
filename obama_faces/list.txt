@@ -1,0 +1,10 @@
+/root/projects/image_processing/face_detect_reco/obama_faces/0.jpg
+/root/projects/image_processing/face_detect_reco/obama_faces/3.jpg
+/root/projects/image_processing/face_detect_reco/obama_faces/5.jpg
+/root/projects/image_processing/face_detect_reco/obama_faces/7.jpg
+/root/projects/image_processing/face_detect_reco/obama_faces/9.jpg
+/root/projects/image_processing/face_detect_reco/obama_faces/11.jpg
+/root/projects/image_processing/face_detect_reco/obama_faces/12.jpg
+/root/projects/image_processing/face_detect_reco/obama_faces/13.jpg
+/root/projects/image_processing/face_detect_reco/obama_faces/15.jpg
+/root/projects/image_processing/face_detect_reco/obama_faces/22.jpg
