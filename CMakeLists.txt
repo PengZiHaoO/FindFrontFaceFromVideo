@@ -2,17 +2,13 @@ cmake_minimum_required(VERSION 3.16.0)
 
 project( detec_reco )
 
-
 find_package(OpenCV REQUIRED)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/FrameReader)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PersonRecognizer)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/FaceDetector)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/CsvWriter)
-
-link_directories(FaceDetector)
-link_directories(PersonRecognizer)
-link_directories(FrameReade)
-link_directories(CsvWriter)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cascades)
 
 add_subdirectory(FaceDetector)
 add_subdirectory(PersonRecognizer)
@@ -34,13 +30,11 @@ target_link_directories(${PROJECT_NAME}
     PUBLIC CsvWriter
 )
 
-find_library(FrameReader NAME FrameReader /build/FrameReader)
-
 target_link_libraries( ${PROJECT_NAME}  
-    PUBLIC  ${OpenCV_LIBS}
-    PUBLIC  FrameReader
-    PUBLIC  FaceDetector
-    PUBLIC  PersonRecognizer
-    PUBLIC  FrameWriter
-    PUBLIC  CsvWriter
+    ${OpenCV_LIBS}
+    FrameReader
+    FaceDetector
+    PersonRecognizer
+    FrameWriter
+    CsvWriter
 )

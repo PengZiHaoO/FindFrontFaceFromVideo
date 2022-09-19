@@ -6,7 +6,7 @@
 class FrameReader
 {
 public:
-    FrameReader(const std::string videoPath, int startFrame = -1, int endFrame = -1, int delta = -1);
+    FrameReader(std::string videoPath, int startFrame = -1, int endFrame = -1, int delta = -1);
     virtual ~FrameReader();
     bool getNextFrame(cv::Mat &frame);
     cv::Size getSize();

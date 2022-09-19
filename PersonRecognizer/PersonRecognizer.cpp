@@ -9,16 +9,23 @@ PersonRecognizer::PersonRecognizer(const std::vector<cv::Mat> &imgs,
                                    int grid_x, int grid_y, 
                                    double threshold)
 {
+    
     std::vector<int> labels(imgs.size());
     for(auto &label : labels)
     {
         label = PERSON_LABEL;
     }
-
-    _faceSize = cv::Size(imgs[0].size().width, imgs[0].size().height);
-
+    std::printf("size = %d \n", imgs.size());
+    //imgs[0].size().width;
+    std::printf("111 ");
+    //imgs[0].size().height;
+    std::printf("222 ");
+    _faceSize = cv::Size(640, 480);
+    
     _model = cv::face::LBPHFaceRecognizer::create(radius, neighbors, grid_x, grid_y, threshold);
     _model->train(imgs, labels);
+    
+
 }
 
 PersonRecognizer::~PersonRecognizer()

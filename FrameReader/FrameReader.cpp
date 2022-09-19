@@ -1,6 +1,6 @@
 #include "FrameReader.h"
 
-FrameReader::FrameReader(const std::string videoPath, 
+FrameReader::FrameReader(std::string videoPath, 
                          int startFrame/* = -1*/, 
                          int endFrame/* = -1*/, 
                          int delta/* = -1*/):
@@ -26,4 +26,13 @@ cv::Size FrameReader::getSize()
         _video.get(cv::CAP_PROP_FRAME_WIDTH),
         _video.get(cv::CAP_PROP_FRAME_HEIGHT)
     );
+}
+
+bool FrameReader::getNextFrame(cv::Mat &frame)
+{
+    if (_delta != -1)
+        _video.set(cv::CAP_PROP_POS_FRAMES, _video.get(cv::CAP_PROP_POS_FRAMES) + _delta);
+    if (_endFrame != -1 && _video.get(cv::CAP_PROP_POS_FRAMES) > _endFrame)
+        return false;
+    return _video.read(frame);
 }

@@ -9,3 +9,6 @@ add_library(${PROJECT_NAME}
     PersonRecognizer.cpp
 )
 
+target_link_libraries(PersonRecognizer opencv_face)
+
+

@@ -1,5 +1,5 @@
 #include <cstdlib>
-
+#include <cstdio>
 #include <opencv2/opencv.hpp>
 #include "FaceDetector/FaceDetector.h"
 #include "PersonRecognizer/PersonRecognizer.h"
@@ -12,8 +12,8 @@
 #define WRITE_CSV
 
 /** Inputs: **/
-#define CASCADE_PATH  "cascades/haarcascade_frontalface_default.xml"
-#define IN_VID        "input_vid/031213_POTUS_ExportCouncil_HD.mp4"
+#define CASCADE_PATH  "/root/projects/image_processing/face_detect_reco/cascades/haarcascade_frontalface_default.xml"
+#define IN_VID        "/root/projects/image_processing/face_detect_reco/input_vid/1.mp4"
 #define TRAINING_LIST "obama_faces/list"
 
 /** Input video: **/
@@ -61,33 +61,47 @@
 void read_training_set(const std::string &list_path, std::vector<cv::Mat> &images) {
     std::ifstream file(list_path.c_str());
     std::string path;
-    while (getline(file, path)) {
+    getline(file, path);
         images.push_back(cv::imread(path, cv::IMREAD_GRAYSCALE));
-    }
+    
 }
 
 int main(int argc, char** argv )
 {
+    std::printf("1 ");
     FrameReader             frame_reader(std::string(IN_VID), START_FRAME, END_FRAME, FRAMES_DELTA);
+    
+    std::printf("2 ");
     cv::Size                frame_size(frame_reader.getSize());
+    std::printf("3 ");
+    
     FaceDetector            face_detector(std::string(CASCADE_PATH), DET_SCALE_FACTOR, DET_MIN_NEIGHBORS, 
                                           DET_MIN_SIZE_RATIO, DET_MAX_SIZE_RATIO);
+    std::printf("4 ");
     std::vector<cv::Mat>    training_set;
+    
+    std::printf("5 ");
     FrameWriter             frame_writer(std::string(OUT_VID), OUT_FPS, frame_size, OUT_FOURCC);
+    std::printf("6 ");
     CsvWriter               csv_writer(std::string(CSV_FILE));
+    std::printf("7 ");
 
     read_training_set(std::string(TRAINING_LIST), training_set);
+    std::printf("8 ");
 
     PersonRecognizer        person_recongnizer(training_set, LBPH_RADIUS, LBPH_NEIGHBORS, 
                                                LBPH_GRID_X, LBPH_GRID_Y, LBPH_THRESHOLD);
 
+    std::printf("9 ");
+    
     cv::Mat                 mat;
     int                     frame_count = START_FRAME == -1 ? 0 : START_FRAME - 1;
     std::vector<cv::Rect>   faces;
+
     while (frame_reader.getNextFrame(mat))
     {
         ++frame_count;
-
+        std::printf("10 ");
         csv_writer.addEntry(cv::format("%d", frame_count));
 
         face_detector.FindFacesInImage(mat, faces);
@@ -143,7 +157,7 @@ int main(int argc, char** argv )
 
         frame_writer.write(mat);
     }
-                                   
+                              
 
     return 0;
 }

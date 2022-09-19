@@ -6,7 +6,6 @@ FaceDetector::FaceDetector(const std::string &cascadePath,
                  double minSizeRatio,
                  double maxSizeRatio
                 ):
-                _cascade(cascadePath),
                 _scaleFactor(scaleFactor),
                 _minNeighbors(minNeighbors),
                 _minSizeRatio(minSizeRatio),
