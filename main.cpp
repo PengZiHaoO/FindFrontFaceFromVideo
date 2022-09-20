@@ -60,12 +60,11 @@
 
 
 void read_training_set(const std::string &list_path, std::vector<cv::Mat> &images) {
-    std::ifstream file(list_path.c_str());
-    std::printf("here");
+    std::ifstream file(list_path.c_str());;
     std::string path;
     while(std::getline(file, path))
     {
-        std::cout <<  path << '\n';
+        //std::cout <<  path << '\n';
         images.push_back(cv::imread(path, cv::IMREAD_GRAYSCALE));
     }
 }
